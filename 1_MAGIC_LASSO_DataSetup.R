@@ -446,10 +446,6 @@ save(bd.miss.ind.top, file=paste(workdir, "UKB23704_30302_MissIndMatrix_Top.Rds"
 ### Create the missingness correlation matrix here, but highly recommend running this portion as
 ### a separate job because it's computationally burdensome
 
-workdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/"
-UKBdir23704 <- "/home/projects/UKB_23704/20181126/Phenos/ukb23704/"
-UKBdir30302 <- "/home/projects/UKB_23704/20181126/Phenos/ukb30302/"
-plotdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/Plots/"
 load(paste(workdir, "UKB23704_30302_MissIndMatrix_Top.Rds", sep=""))
 ### To avoid NA values in the correlation calculations, add two dummy subjects
 dummy.all <- rep(0, dim(bd.miss.ind.top)[2])
@@ -465,10 +461,7 @@ save(bd.miss.cor, file=paste(workdir, "UKB23704_30302_MissCor.Rds", sep=""))
 ### adding two indicator columns together and counting how many zeros there are
 ### Code below split and run in two separate jobs
 ### Part 1
-workdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/"
-UKBdir23704 <- "/home/projects/UKB_23704/20181126/Phenos/ukb23704/"
-UKBdir30302 <- "/home/projects/UKB_23704/20181126/Phenos/ukb30302/"
-plotdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/Plots/"
+
 load(paste(workdir, "UKB23704_30302_MissIndMatrix_Top.Rds", sep=""))
 ### Make a matrix for pairwise missingness counts
 nVars <- dim(bd.miss.ind.top)[2]
@@ -486,10 +479,7 @@ for (ii in 1:cut.point){
 save(pairwise.missA, file=paste(workdir, "UKB23704_30302_Pairwise_Top_Pt1.Rds", sep=""))
 
 ### Part 2
-workdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/"
-UKBdir23704 <- "/home/projects/UKB_23704/20181126/Phenos/ukb23704/"
-UKBdir30302 <- "/home/projects/UKB_23704/20181126/Phenos/ukb30302/"
-plotdir <- "/home/projects/UKB_23704/20181126/Phenos/working/AUDITproject/Plots/"
+
 load(paste(workdir, "UKB23704_30302_MissIndMatrix_Top.Rds", sep=""))
 ### Make a matrix for pairwise missingness counts
 nVars <- dim(bd.miss.ind.top)[2]
